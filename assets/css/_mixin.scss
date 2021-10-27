@@ -1,0 +1,36 @@
+@mixin height-width($height, $width){
+    height: $height;
+    width: $width;
+}
+@mixin min-max($max-width){
+    max-width: $max-width;
+}
+@mixin margin-padding($margin, $pading) {
+    margin: $margin;
+    padding: $pading;
+}
+@mixin font-style( $font-size, $font-weight, $font-style, $color, $margin, $padding, $vertical-align, $line-height, $display ){
+
+    font-size: $font-size;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    color: $color; 
+    margin: $margin;  
+    padding: $padding;
+    vertical-align: $vertical-align;
+    line-height: $line-height;
+    display: $display;
+    
+}
+@mixin border-props( $border, $border-radius) {
+    border: $border;
+    border-radius: $border-radius;
+
+}
+@mixin grid($display, $grid-gap, $grid-area, $grid-template-areas, $grid-template-columns) {
+    display: $display;
+    grid-gap: $grid-gap;
+    grid-area: $grid-area;
+    grid-template-areas: $grid-template-areas;
+    grid-template-columns: $grid-template-columns;
+}
