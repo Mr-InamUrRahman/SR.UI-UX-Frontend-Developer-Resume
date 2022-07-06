@@ -5,6 +5,455 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background-color: #f3f2ef;
+  line-height: 1;
+  font-family: "Roboto", sans-serif;
+}
+
+.grid-container {
+  max-width: 1140px;
+  margin: auto;
+  padding: 5rem 1.5rem;
+}
+
+.grid-row {
+  display: grid;
+  grid-gap: 2rem;
+  grid-area: initial;
+  grid-template-areas: "header header header header" "left left right right" "footer footer footer footer";
+  grid-template-columns: minmax(0, 0fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0fr);
+}
+
+.grid-col {
+  border: 1px solid rgba(0, 0, 0, 0.1215686275);
+  border-radius: 0.8rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.header {
+  grid-area: header;
+}
+
+.grid-col-1 {
+  grid-area: left;
+}
+
+.grid-col-2 {
+  grid-area: right;
+  height: 88.9%;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.cover-photo {
+  position: relative;
+  height: 28rem;
+  width: 100%;
+}
+.cover-photo img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.profile-photo {
+  height: 16rem;
+  width: 16rem;
+  border: 0.4rem solid #fff;
+  border-radius: 100%;
+  margin: -8rem 0 0 2.5rem;
+  padding: initial;
+  overflow: hidden;
+  position: relative;
+}
+.profile-photo img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profile-details {
+  margin: 0 2.5rem;
+  padding: 0 0 3rem 0;
+}
+.profile-details h1 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  font-style: initial;
+  color: #000046;
+  margin: 1.5rem 0 2rem 0;
+  padding: initial;
+  vertical-align: initial;
+  line-height: 2.8rem;
+  display: inherit;
+}
+.profile-details h1 span {
+  font-size: 1.6rem;
+  font-weight: 300;
+  font-style: initial;
+  color: #000046;
+  margin: initial;
+  padding: 0.5rem 0 0 0;
+  vertical-align: initial;
+  line-height: initial;
+  display: block;
+}
+.profile-details h1 small {
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-style: initial;
+  color: #000046;
+  margin: initial;
+  padding: initial;
+  vertical-align: initial;
+  line-height: initial;
+  display: initial;
+}
+.profile-details ul {
+  display: flex;
+}
+.profile-details ul li {
+  margin: 0 1.5rem 0 0;
+  padding: initial;
+}
+.profile-details ul li:last-child {
+  margin: 0;
+  padding: 0;
+}
+.profile-details ul li a {
+  font-size: 1.6rem;
+  font-weight: 500;
+  font-style: initial;
+  color: #fff;
+  margin: initial;
+  padding: 0.8rem 1.6rem;
+  vertical-align: initial;
+  line-height: initial;
+  display: block;
+  background-color: #0a66c2;
+  border-radius: 10rem;
+}
+.profile-details ul li a:hover {
+  background-color: #004182;
+}
+.profile-details ul li:last-child a {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 0 0 0.1rem rgba(0, 0, 0, 0.6);
+}
+.profile-details ul li:last-child a:hover {
+  background-color: rgba(0, 0, 0, 0.0784313725);
+  color: rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 0 0 0.2rem rgba(0, 0, 0, 0.6);
+}
+
+.about-box {
+  padding: 2.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1215686275);
+}
+.about-box h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  font-style: initial;
+  color: #000046;
+  margin: 0 0 2rem 0;
+  padding: initial;
+  vertical-align: middle;
+  line-height: initial;
+  display: inherit;
+}
+.about-box p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-style: initial;
+  color: #000046;
+  margin: initial;
+  padding: initial;
+  vertical-align: initial;
+  line-height: 2.5rem;
+  display: initial;
+}
+.about-box p b {
+  font-size: 1.6rem;
+}
+
+.recomandation-box i {
+  border-radius: 100%;
+  overflow: hidden;
+  display: table;
+}
+.recomandation-box i img {
+  -o-object-fit: fill;
+     object-fit: fill;
+  display: block;
+}
+.recomandation-box h3 {
+  height: auto;
+  width: 20%;
+  margin-right: 20px !important;
+}
+.recomandation-box .recomandation {
+  height: auto;
+  width: 75%;
+}
+.recomandation-box .recomandation p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-style: initial;
+  color: #4a4a4a;
+  margin: initial;
+  padding: initial;
+  vertical-align: initial;
+  line-height: 2.5rem;
+  display: initial;
+}
+
+.skill-box {
+  height: 100%;
+  width: auto;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1215686275);
+  padding: 2.5rem;
+  background-color: #dce6f1;
+}
+.skill-box h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  font-style: initial;
+  color: #000046;
+  margin: 0 0 2rem 0;
+  padding: initial;
+  vertical-align: middle;
+  line-height: initial;
+  display: inherit;
+}
+.skill-box h2 i {
+  vertical-align: middle;
+}
+.skill-box h2 small {
+  font-size: 1.6rem;
+  font-weight: initial;
+  font-style: italic;
+  color: #000046;
+  margin: initial;
+  padding: 0.5 0 0 0;
+  vertical-align: initial;
+  line-height: initial;
+  display: block;
+}
+.skill-box .grid-col {
+  padding: 2.5rem 1rem 1.5rem 1rem;
+}
+.skill-box .grid-col h2 {
+  margin-bottom: 3rem;
+}
+.skill-box .grid-col ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.1rem;
+  position: relative;
+}
+.skill-box .grid-col ul li:after {
+  content: "";
+  position: absolute;
+  background-color: #f3f2ef;
+  bottom: 0;
+  height: 0.1rem;
+  width: 100%;
+}
+.skill-box .grid-col ul li:last-child {
+  padding: 0;
+  margin: 0;
+}
+.skill-box .grid-col ul li:last-child::after {
+  display: none;
+}
+.skill-box .grid-col ul li h5 {
+  display: flex;
+}
+.skill-box .grid-col ul li h5 i {
+  vertical-align: middle;
+}
+.skill-box .grid-col ul li h5 i img {
+  height: auto;
+  width: 3rem;
+}
+.skill-box .grid-col ul li h5 p {
+  font-size: 1.6rem;
+  font-weight: initial;
+  font-style: initial;
+  color: #000046;
+  margin: 0 0 0 0.5rem;
+  padding: initial;
+  vertical-align: middle;
+  line-height: 2rem;
+  display: initial;
+}
+.skill-box .grid-col ul li h5 p small {
+  font-size: 1.3rem;
+  font-weight: initial;
+  font-style: italic;
+  color: #000046;
+  margin: initial;
+  padding: initial;
+  vertical-align: initial;
+  line-height: initial;
+  display: block;
+  opacity: 0.5;
+  padding-top: 0.5rem;
+}
+.skill-box .grid-col ul li span {
+  font-size: 2rem;
+}
+
+.education-box {
+  padding: 2.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1215686275);
+}
+.education-box h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  font-style: initial;
+  color: #000046;
+  margin: 0 0 3rem 0;
+  padding: initial;
+  vertical-align: middle;
+  line-height: initial;
+  display: inherit;
+}
+.education-box li {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0 0 1.5rem 0;
+  padding: 0 0 1.5rem 0;
+}
+.education-box li:last-child {
+  margin: 0;
+  padding: 0;
+}
+.education-box li:after {
+  content: "";
+  position: absolute;
+  background-color: #f3f2ef;
+  bottom: 0;
+  right: 0;
+  height: 0.1rem;
+  width: 100%;
+}
+.education-box li:last-child::after {
+  display: none;
+}
+.education-box li i {
+  margin-right: 2rem;
+}
+.education-box li i img {
+  height: 5.4rem;
+  width: 5.4rem;
+}
+.education-box li h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  font-style: initial;
+  color: #000046;
+  margin: initial;
+  padding: initial;
+  vertical-align: initial;
+  line-height: 2rem;
+  display: initial;
+}
+.education-box li h3 span {
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-style: initial;
+  color: #000046;
+  margin: initial;
+  padding: 0.6rem 0 0 0;
+  vertical-align: initial;
+  line-height: initial;
+  display: block;
+}
+.education-box li h3 small {
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-style: initial;
+  color: #000046;
+  margin: initial;
+  padding: 0.6rem 0 0 0;
+  vertical-align: initial;
+  line-height: initial;
+  display: block;
+  opacity: 0.5;
+}
+
+.ide-box h5 {
+  align-items: center;
+}
+
+h1.msg {
+  padding: 12px 20px;
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+h1.msg a {
+  color: #fff;
+  background-color: #218838;
+  border-color: #1e7e34;
+  border: 0;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 3px;
+  display: block;
+}
+
+@media (max-width: 1440px) {
+  * {
+    font-size: 52.5%;
+  }
+}
+@media (max-width: 824px) {
+  * {
+    font-size: 42.5%;
+  }
+
+  .grid-row {
+    grid-template-areas: "header header header header" "left left left left" "right right right right" "footer footer footer footer";
+  }
+}
+@media (max-width: 767px) {
+  * {
+    font-size: 32.5%;
+  }
+}/*# sourceMappingURL=style.css.map */
+    </style>
     <title>SR.UI/UX Frontend Wordpress Developer | MR.Inam Ur Rahman</title>
 </head>
 <body>
@@ -40,7 +489,26 @@
                     <h2>Experience</h2>
                     <ul>
                         <li>
-                            <i><img src="https://media-exp1.licdn.com/dms/image/C4D0BAQE-Jf-4xZWtaQ/company-logo_100_100/0/1633523167310?e=1643241600&v=beta&t=1zJUtgVs0MhumPcwAZ6-b7ZXopNrTTzs3G1juL5vtBQ"/></i>
+                            <i><img src="https://media-exp1.licdn.com/dms/image/C4E0BAQFuPMVz9E4AjA/company-logo_100_100/0/1549975921293?e=1665014400&v=beta&t=gvVXL-dO4WfSVZAlTmuAHZ46ljcwyUYhTnC3PW-xZQA"/></i>
+                            <h3>
+                                WizTech Pakistan 
+                                <span> Senior Frontend UI Developer</span>
+                                <small>Present  ·  7 mos</small>
+                            </h3>
+                        </li>
+
+
+                        <li>
+                            <i><img src="https://media-exp1.licdn.com/dms/image/C4D0BAQEupYXb6xtMRw/company-logo_100_100/0/1616535629992?e=1665014400&v=beta&t=lwjM1g7U7SahC_y5pnEZCK5GiYV_s6JcjsElYh-WqCw"/></i>
+                            <h3>
+                                The Web Gateway · Remotly
+                                <span>Senior UI Developer</span>
+                                <small>2 mos</small>
+                            </h3>
+                        </li>
+
+                        <li>
+                            <i><img src="https://media-exp1.licdn.com/dms/image/C4E0BAQEqQN7m7C2CQw/company-logo_100_100/0/1648807408381?e=1665014400&v=beta&t=tnXK6SNcHLCSg1z_astIniN6Oau3vgNZ-lWybTAXtQU"/></i>
                             <h3>
                                 IBG Consulting
                                 <span>SR. UI/UX Frontend React Next JS Developer</span>
@@ -49,7 +517,7 @@
                         </li>
 
                         <li>
-                            <i><img src="https://media-exp1.licdn.com/dms/image/C4D0BAQHLPngH8a74-Q/company-logo_100_100/0/1615749406101?e=1643241600&v=beta&t=gEeTs4NdXTfeeQU_nIb1EXxhRDr0olvYgM0gB7wg5u8"/></i>
+                            <i><img src="https://media-exp1.licdn.com/dms/image/C4D0BAQHLPngH8a74-Q/company-logo_100_100/0/1615749406101?e=1665014400&v=beta&t=RdeYquP0RhKUFRpLg7JV6ySnZWANOj_deB8iW6HBubQ"/></i>
                             <h3>
                                 Legendesk (Pvt.) Ltd.
                                 <span>Senior Executive - UI/UX Frontend Developer</span>
@@ -58,7 +526,7 @@
                         </li>
 
                         <li>
-                            <i><img src="https://media-exp1.licdn.com/dms/image/C560BAQFcl6cCId4weQ/company-logo_100_100/0/1579088677811?e=1643241600&v=beta&t=jh80YYIzJ8IHi7ZCcuDx9L5kaoxlYUirTK-gX-oU0d8"/></i>
+                            <i><img src="https://media-exp1.licdn.com/dms/image/C560BAQFcl6cCId4weQ/company-logo_100_100/0/1579088677811?e=1665014400&v=beta&t=-uMgwRpj1WP_adRHnWl2Z-Dsrb9Md4jwCREj_K5nCDM"/></i>
                             <h3>
                                 Innovatech Solutions
                                 <span>UI/UX Frontend Woespress Developer</span>
@@ -126,10 +594,51 @@
                     </ul>
                 </div>
 
+                <div class="recomandation-box education-box">
+                    <h2>Recommendations</h2>
+                    <ul>
+
+                        <li>
+                            <i><img src="https://media-exp1.licdn.com/dms/image/C4D03AQH5VUAs_NBM_g/profile-displayphoto-shrink_100_100/0/1628788813806?e=1662595200&v=beta&t=sYZyJcuVs5XeclRWJrgHIXocLjWgEs0skDTGczazsMU"/></i>
+                            <h3>
+                                Tabinda Saqib
+                                <small>Director HR at IBG Consulting</small>
+                            </h3>
+                            <div class="recomandation">
+                                <p>During the interview, I found Inam very professional and someone who knows his work. Later, Inam proved it right by his dedication and hard work. He is a great team player, he has my full recommendation.</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i><img src="https://media-exp1.licdn.com/dms/image/C5103AQEECT5k8PEmFg/profile-displayphoto-shrink_100_100/0/1580221953974?e=1662595200&v=beta&t=WkTH5UU1ZSgpOmXk58SpHmhJ8a2KeufIWLNbYBai2N4"/></i>
+                            <h3>
+                                Muhammed Ahmed
+                                <small>Senior Manager User Interface at Tcurve</small>
+                            </h3>
+                            <div class="recomandation">
+                                <p>It was fantastic to work together with Inam khan, who was an efficient Senior UI/UX Developer. Proactive, energetic, and totally organized. Brilliant Senior UI/UX Developer. Loyal, insightful, and independent. Is always capable of adapting to new working environments. Very positive attitude towards work. Inam Khan will find a way to weather any storm with a smile. He learns quickly and I would have no hesitation in working with Inam khan once again in the future.</p>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <i><img src="https://media-exp1.licdn.com/dms/image/C5103AQHR8J9lboVVbg/profile-displayphoto-shrink_100_100/0/1542641763323?e=1662595200&v=beta&t=RD9TcchenTKbV6_5LUPNEZBQBR-NH3yKGTJ1qc-eN9U"/></i>
+                            <h3>
+                                Rabi Khan
+                                <small>Sr. Graphic designer at ACE Digitals Pvt Ltd.</small>
+                            </h3>
+                            <div class="recomandation">
+                                <p>Hard working guy with professional skills, highly recommend.</p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
             </div>
             <div class="grid-col grid-col-2">
                 <div class="skill-box">
-                    <h2><i><img src="assets/images/icons/1.svg"/> </i>Skills <small>A Safe Place In An Unsafe World!</small></h2>
+                    <h2><i><img src="assets/images/icons/1.svg"/> </i>Skills <small>Skills is a Safe Place In an Unsafe World!</small></h2>
                     <div class="grid-col">
                         <h2><i><img src="assets/images/icons/1.svg"/> </i>Frontend Skills</h2>
                         <ul>
@@ -183,9 +692,17 @@
                             <li>
                                 <h5>
                                     <i><img src="assets/images/skills/7.jpg"/></i> 
-                                    <p>React/NextJS<small>10/5</small></p>
+                                    <p>React/NextJS UI<small>10/5</small></p>
                                 </h5>
-                                <span>★★★★★☆☆☆☆☆</span>
+                                <span>★★★★★★★★☆☆</span>
+                            </li>
+
+                            <li>
+                                <h5>
+                                    <i><img src="assets/images/skills/angular.png" width="25"/></i> 
+                                    <p>Angular JS UI<small>10/5</small></p>
+                                </h5>
+                                <span>★★★★★★★★☆☆</span>
                             </li>
                         </ul>
                     </div>
@@ -227,6 +744,13 @@
                         <ul>
                             <li>
                                 <h5>
+                                    <i><img src="assets/images/skills/figma.png"/></i> 
+                                    <p>Figma <small>10/7</small></p>
+                                </h5>
+                                <span>★★★★★★★☆☆☆</span>
+                            </li>
+                            <li>
+                                <h5>
                                     <i><img src="assets/images/skills/10.jpg"/></i> 
                                     <p>iLLustrator CC <small>10/7</small></p>
                                 </h5>
@@ -244,7 +768,7 @@
                     <div class="space"><br/><br/></div>
                     
                     <div class="grid-col ide-box">
-                        <h2><i><img src="assets/images/icons/1.svg"/> </i>IDE</h2>
+                        <h2><i><img src="assets/images/icons/1.svg"/> </i>IDE - Integrated Development Environment </h2>
                         <ul>
                             <li>
                                 <h5>
@@ -260,81 +784,40 @@
                             </li>
                         </ul>
                     </div>
+                    
+                    <div class="space"><br/><br/></div>
+                    
+                    <div class="grid-col">
+                        <h2><i><img src="assets/images/icons/1.svg"/> </i>SEO Marketing Skills</h2>
+                        <ul>
+                            <li>
+                                <h5>
+                                    <p>Niche Research <small>10/7</small></p>
+                                </h5>
+                                <span>★★★★★★★☆☆☆</span>
+                            </li>
+                            <li>
+                                <h5>
+                                    <p>Keyword Research <small>10/7</small></p>
+                                </h5>
+                                <span>★★★★★★★☆☆☆</span>
+                            </li>
+                            <li>
+                                <h5>
+                                    <p>On/Off Page SEO - Website Indexing <small>10/07</small></p>
+                                </h5>
+                                <span>★★★★★★★☆☆☆</span>
+                            </li>
+                            <li>
+                                <h5>
+                                    <p>PPC - Google Ads Facebook Pixel <small>10/07</small></p>
+                                </h5>
+                                <span>★★★★★★★☆☆☆</span>
+                            </li>
 
-                </div>
-            </div>
-            <div class="grid-col footer">
-                <div class="recomandation-box education-box">
-                    <h2>Recommendations</h2>
-                    <ul>
+                        </ul>
+                    </div>
 
-                        <li>
-                            <i><img src="https://media-exp1.licdn.com/dms/image/C4D03AQH5VUAs_NBM_g/profile-displayphoto-shrink_100_100/0/1628788813806?e=1640822400&v=beta&t=6QHQ9UI2yYYR4ZksvTUrWXilHPVIPsC6JqQIpH6HclQ"/></i>
-                            <h3>
-                                Tabinda Saqib
-                                <small>Director HR at IBG Consulting</small>
-                            </h3>
-                            <div class="recomandation">
-                                <p>During the interview, I found Inam very professional and someone who knows his work. Later, Inam proved it right by his dedication and hard work. He is a great team player, he has my full recommendation.</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <i><img src="https://media-exp1.licdn.com/dms/image/C4E03AQHcAbX_m1dvKA/profile-displayphoto-shrink_100_100/0/1629687405628?e=1640822400&v=beta&t=RAY7BNHeepuwV0OaqJsBSKhJQrmOKrWvgAgbg8Y_lUE"/></i>
-                            <h3>
-                                Salman Khan
-                                <small>Regional Director Of Sales And Marketing at Innovatech Solutions</small>
-                            </h3>
-                            <div class="recomandation">
-                                <p>Potential and highly skilled with an astonished sense of humor</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <i><img src="https://media-exp1.licdn.com/dms/image/C5103AQEECT5k8PEmFg/profile-displayphoto-shrink_100_100/0/1580221953974?e=1640822400&v=beta&t=bLA2PvVmU1vwlQ6eRvLhjemBuRiLXlAeTFHWHjLWxqg"/></i>
-                            <h3>
-                                Muhammed Ahmed
-                                <small>Senior Manager User Interface at Tcurve</small>
-                            </h3>
-                            <div class="recomandation">
-                                <p>It was fantastic to work together with Inam khan, who was an efficient Senior UI/UX Developer. Proactive, energetic, and totally organized. Brilliant Senior UI/UX Developer. Loyal, insightful, and independent. Is always capable of adapting to new working environments. Very positive attitude towards work. Inam Khan will find a way to weather any storm with a smile. He learns quickly and I would have no hesitation in working with Inam khan once again in the future.</p>
-                            </div>
-                        </li>
-
-
-                        <li>
-                            <i><img src="https://media-exp1.licdn.com/dms/image/C5103AQHR8J9lboVVbg/profile-displayphoto-shrink_100_100/0/1542641763323?e=1640822400&v=beta&t=fZGj-5em0QvzKxRKsZjHFS91Y4C7fnlKTqQyVwdfawQ"/></i>
-                            <h3>
-                                Rabi Khan
-                                <small>Sr. Graphic designer at ACE Digitals Pvt Ltd.</small>
-                            </h3>
-                            <div class="recomandation">
-                                <p>Hard working guy with professional skills, highly recommend.</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <i><img src="https://media-exp1.licdn.com/dms/image/C4E03AQH4zIPGV2bQ-w/profile-displayphoto-shrink_100_100/0/1626483322930?e=1640822400&v=beta&t=4EM8UTv6LFPFwutb4tGzCy2qJVH_Jr8nTUYlC9I8WMA"/></i>
-                            <h3>
-                                Yahya Sultan
-                                <small>UI/UX Developer at SalSoft.</small>
-                            </h3>
-                            <div class="recomandation">
-                                <p>It’s my pleasure to provide this letter of recommendation for Inam Ur Rehman. As sole Frontend Developer at Legendesk, I’ve worked closely with him over the past three months, sharing the same open office space the majority of the time. Inam showed excellent communication skills and consistently exceeded company quotas. On a personal level, he’s charismatic and well-spoken, both qualities that have served him well in his role.</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <i><img src="https://media-exp1.licdn.com/dms/image/C4D03AQEfhzXhIFmYtw/profile-displayphoto-shrink_200_200/0/1606966514834?e=1640822400&v=beta&t=Fuh-nQMdl8uuvY_CZUZ7mgMRD9Wuv99RiHkGbcn0xt0"/></i>
-                            <h3>
-                                Owais Jalal
-                                <small>UI/UX Developer at 10Perls.</small>
-                            </h3>
-                            <div class="recomandation">
-                                <p>He is wonderful to work with, and has exceptional experience in motivation. He understands complex matters even when outside of his direct area of expertise. Inam Khan never refuses you when you ask him for help. Energetic and broad-minded Sr Executive UI/UX - that's him! Detail oriented team player. Inam Khan always maintains very good relation with co-workers and clients. He learns quickly and I would have no doubt in working with Inam Khan again in the future.</p>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
