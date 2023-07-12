@@ -45,11 +45,14 @@ body {
 
 .grid-col-2 {
   grid-area: right;
-  height: 88.9%;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
-.footer {
+.grid-col-3 {
   grid-area: footer;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .cover-photo {
@@ -435,7 +438,6 @@ h1.msg a {
   * {
     font-size: 42.5%;
   }
-
   .grid-row {
     grid-template-areas: "header header header header" "left left left left" "right right right right" "footer footer footer footer";
   }

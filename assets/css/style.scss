@@ -55,10 +55,11 @@ body{
 }
 .grid-col-2{
     grid-area: right;
-    height: 88.9%;
+    height: fit-content;
 }
-.footer{
+.grid-col-3{
     grid-area: footer;
+    height: fit-content;
 }
 
 .cover-photo{
